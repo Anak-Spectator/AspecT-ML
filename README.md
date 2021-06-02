@@ -34,11 +34,11 @@ The preprocessing steps that we applied to the dataset are:
 In the end, we get 13327 data with 8179 of them labeled as 0 and the remaining 5148 labeled as 1.
 
 ### Building Model
-We split the dataset into 3 parts, which are training, validation, and testing with the proportions of 80%, 10%, and 10% respectively.
+We split the dataset into 3 parts, which are training, validation, and test set with the proportions of 80%, 10%, and 10% respectively.
 
 The model consists of a trainable 128-dimensional pre-trained embedding (taken from https://tfhub.dev/google/tf2-preview/nnlm-id-dim128-with-normalization/1) and the other six hidden layers, with five of them are Bidirectional LSTM layer. The output layer is a single neuron Dense layer with sigmoid as its activation function. 
 
-We compiled the model with Adam optimizer and binary cross-entropy as the loss function. We trained it for 20 epochs and consistently got accuracy above 85%.
+We compiled the model with Adam optimizer and binary cross-entropy as the loss function. We trained it for 20 epochs and consistently got accuracy above 85% on the test set.
 
 ### Model Deployment
 We exported the trained model to Google Cloud Storage Bucket and use the AI Platform to serve predictions. 
